@@ -1,3 +1,7 @@
+export interface UserState {
+    checkMaskUserName: boolean;
+}
+
 export function reducer(state, action) {
     switch (action.type) {
         case 'CHECK_MASK_USER':
