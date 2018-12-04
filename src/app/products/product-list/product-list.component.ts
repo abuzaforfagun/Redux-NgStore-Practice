@@ -1,4 +1,4 @@
-import { SetCurrentProduct } from './../state/product.action';
+import { SetCurrentProduct, ClearCurrentProduct, InitializeNewProduct } from './../state/product.action';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
@@ -54,7 +54,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   newProduct(): void {
-    this.productService.changeSelectedProduct(this.productService.newProduct());
+    this.store.dispatch(new InitializeNewProduct());
+    // this.productService.changeSelectedProduct(this.productService.newProduct());
   }
 
   productSelected(product: Product): void {

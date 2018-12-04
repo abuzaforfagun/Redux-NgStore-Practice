@@ -42,7 +42,7 @@ export function reducer(state = initialState, action: ProductActions): ProductSt
                 ...state,
                 currentProduct: action.payload
             };
-        case ProductActionTypes.InitializeCurrentProduct: {
+        case ProductActionTypes.InitializeNewProduct: {
             return {
                 ...state,
                 currentProduct: {

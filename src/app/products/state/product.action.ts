@@ -5,7 +5,7 @@ export enum ProductActionTypes {
     ToggleProductCode = '[Product] Toogle Product Code',
     SetCurrentProduct = '[Product] Set Current Product',
     ClearCurrentProduct = '[Product] Clear Current Product',
-    InitializeCurrentProduct = '[Product] Initialize Current Product'
+    InitializeNewProduct = '[Product] Initialize New Product'
 }
 
 export class ToogleProductCode implements Action {
@@ -22,9 +22,9 @@ export class ClearCurrentProduct implements Action {
     readonly type = ProductActionTypes.ClearCurrentProduct;
     constructor() { }
 }
-export class InitializeCurrentProduct implements Action {
-    readonly type = ProductActionTypes.InitializeCurrentProduct;
+export class InitializeNewProduct implements Action {
+    readonly type = ProductActionTypes.InitializeNewProduct;
     constructor() { }
 }
 
-export type ProductActions = ToogleProductCode | SetCurrentProduct | ClearCurrentProduct | InitializeCurrentProduct;
+export type ProductActions = ToogleProductCode | SetCurrentProduct | ClearCurrentProduct | InitializeNewProduct;
