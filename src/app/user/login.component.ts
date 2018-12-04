@@ -1,3 +1,4 @@
+import { CheckMaskUser } from './state/user.action';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
 
   checkChanged(value: boolean): void {
     // this.maskUserName = value;
-    this.store.dispatch({ type: 'CHECK_MASK_USER', payload: value });
+    this.store.dispatch(new CheckMaskUser(value));
   }
 
   login(loginForm: NgForm): void {
