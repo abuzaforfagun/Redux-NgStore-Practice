@@ -1,3 +1,4 @@
+import { ProductActions, ProductActionTypes } from './product.action';
 import { ProductState } from './product.reducer';
 import { Product } from './../product';
 import * as fromRoot from '../../state/app.state';
@@ -24,17 +25,35 @@ export const getShowProductCode = createSelector(getProductFeatureState, state =
 export const getCurrentProduct = createSelector(getProductFeatureState, state => state.currentProduct);
 export const getProducts = createSelector(getProductFeatureState, state => state.products);
 
-export function reducer(state = initialState, action): ProductState {
+export function reducer(state = initialState, action: ProductActions): ProductState {
     switch (action.type) {
-        case 'TOGGLE_DISPLAY_CODE':
-            // let _state = Object.assign({}, state);
-            console.log(state);
-            console.log(action.payload);
+        case ProductActionTypes.ToggleProductCode:
             return {
                 ...state,
                 showProductCode: action.payload
             };
-
+        case ProductActionTypes.ClearCurrentProduct:
+            return {
+                ...state,
+                currentProduct: null
+            };
+        case ProductActionTypes.SetCurrentProduct:
+            return {
+                ...state,
+                currentProduct: action.payload
+            };
+        case ProductActionTypes.InitializeCurrentProduct: {
+            return {
+                ...state,
+                currentProduct: {
+                    id: 0,
+                    description: '',
+                    productCode: 'New',
+                    productName: '',
+                    starRating: 0
+                }
+            };
+        }
         default:
             return state;
     }

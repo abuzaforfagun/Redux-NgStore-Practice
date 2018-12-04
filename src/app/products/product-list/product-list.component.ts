@@ -7,6 +7,7 @@ import { ProductService } from '../product.service';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../state/app.state';
 import * as fromProduct from '../state/product.reducer';
+import { ToogleProductCode } from '../state/product.action';
 
 @Component({
   selector: 'pm-product-list',
@@ -50,7 +51,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   checkChanged(value: boolean): void {
     // this.displayCode = value;
-    this.store.dispatch({ type: 'TOGGLE_DISPLAY_CODE', payload: value });
+    this.store.dispatch(new ToogleProductCode(value));
   }
 
   newProduct(): void {
